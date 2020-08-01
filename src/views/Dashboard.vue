@@ -1,23 +1,29 @@
 <template>
   <section id="dashboard" v-if="!fetching">
     <h2 :style="style"><span>Dashboard</span></h2>
-    <widget :model="observation" />
+    <div class="widgets">
+      <observation-widget :model="observation" />
+      <forecast-widget :model="forecast" />
+    </div>
   </section>
 </template>
 
 <script lang="ts">
-import { IObservation, ITheme, fn } from '@/types'
-import { Component, Vue } from 'vue-property-decorator'
 import { Getter, Action } from 'vuex-class'
-import Widget from '@/components/Widget.vue'
+import { Component, Vue } from 'vue-property-decorator'
+import { IObservation, IForecast, ITheme, fn } from '@/types'
+import ObservationWidget from '@/components/organisms/Observation.vue'
+import ForecastWidget from '@/components/organisms/Forecast.vue'
 
 @Component({
   components: {
-    Widget,
+    ObservationWidget,
+    ForecastWidget,
   }
 })
 export default class Dashboard extends Vue {
   @Getter('app/observation') observation!: IObservation
+  @Getter('app/forecast') forecast!: IForecast
   @Getter('app/fetching') fetching!: boolean
   @Getter('app/theme') theme!: ITheme
   @Action('app/fetch') fetch!: fn
@@ -36,5 +42,10 @@ export default class Dashboard extends Vue {
 
 <style lang="scss">
 #dashboard {
+  padding: 60px 0;
+
+  h2 {
+    margin: 0;
+  }
 }
 </style>

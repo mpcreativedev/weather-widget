@@ -29,6 +29,17 @@ export interface IMetric {
   windSpeed: number
 }
 
+export interface IForecast {
+  dayOfWeek: string[]
+  moonPhase: string[]
+  daypart: IDaypart[]
+}
+
+export interface IDaypart {
+  daypartName: string[]
+  iconCode: number[]
+}
+
 export interface ITheme {
   background: string
   secondary: string

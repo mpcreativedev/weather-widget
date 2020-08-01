@@ -3,18 +3,21 @@ import {
   FETCH_START,
   FETCH_COMPLETE,
   SET_OBSERVATION,
+  SET_FORECAST,
 } from '@/store/mutations/app'
-import { ITheme, IObservation } from '@/types'
+import { IObservation, IForecast, ITheme } from '@/types'
 import api from '@/api'
 
 const state = {
   fetching: false,
   observation: {},
+  forecast: {},
   theme: {},
 }
 
 const getters = {
   observation (state: any): IObservation { return state.observation },
+  forecast (state: any): IForecast { return state.forecast },
   fetching (state: any): boolean { return state.fetching },
   theme (state: any): ITheme { return state.theme },
 }
@@ -22,6 +25,10 @@ const getters = {
 const mutations = {
   [SET_OBSERVATION] (state: any, payload: IObservation): void { 
     state.observation = payload
+  },
+
+  [SET_FORECAST] (state: any, payload: IForecast): void { 
+    state.forecast = payload
   },
 
   [SET_THEME] (state: any, payload: ITheme): void { 
@@ -49,10 +56,10 @@ const actions = {
   async fetch ({ commit }: any): Promise<void> {
     commit(FETCH_START)
     const { data: { observations } } = await api.current.fetch()
+    const { data } = await api.forecast.fetch(observations[0])
     commit(SET_OBSERVATION, observations[0])
+    commit(SET_FORECAST, data)
     commit(FETCH_COMPLETE)
-    //const { data } = await api.forecast.fetch(observations[0])
-    //console.log(data)
   }
 }
 

@@ -13,9 +13,9 @@ export default {
   fetch ({ lat, lon }: IObservation): Promise<AxiosResponse> {
     return forecastDailyRequest.get(`5day`, { params: {
       language: VUE_APP_API_LANGUAGE,
-      format: VUE_APP_API_UNITS,
+      format: VUE_APP_API_FORMAT,
       apiKey: VUE_APP_API_KEY,
-      units: VUE_APP_API_FORMAT,
+      units: VUE_APP_API_UNITS,
       geocode: `${lat},${lon}`,
     } })
   },
