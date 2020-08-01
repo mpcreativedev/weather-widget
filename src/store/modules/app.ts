@@ -10,6 +10,7 @@ import api from '@/api'
 
 const state = {
   fetching: false,
+  fetched: false,
   observation: {},
   forecast: {},
   theme: {},
@@ -18,7 +19,7 @@ const state = {
 const getters = {
   observation (state: any): IObservation { return state.observation },
   forecast (state: any): IForecast { return state.forecast },
-  fetching (state: any): boolean { return state.fetching },
+  fetched (state: any): boolean { return state.fetched },
   theme (state: any): ITheme { return state.theme },
 }
 
@@ -41,6 +42,7 @@ const mutations = {
 
   [FETCH_COMPLETE] (state: any): void { 
     state.fetching = false
+    state.fetched = true
   }
 }
 

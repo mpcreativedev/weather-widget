@@ -1,7 +1,7 @@
 <template>
-  <section id="dashboard" v-if="!fetching">
+  <section id="dashboard">
     <h2 :style="style"><span>Dashboard</span></h2>
-    <div class="widgets">
+    <div class="widgets" v-if="fetched">
       <observation-widget :model="observation" />
       <forecast-widget :model="forecast" />
     </div>
@@ -24,7 +24,7 @@ import ForecastWidget from '@/components/organisms/Forecast.vue'
 export default class Dashboard extends Vue {
   @Getter('app/observation') observation!: IObservation
   @Getter('app/forecast') forecast!: IForecast
-  @Getter('app/fetching') fetching!: boolean
+  @Getter('app/fetched') fetched!: boolean
   @Getter('app/theme') theme!: ITheme
   @Action('app/fetch') fetch!: fn
 
