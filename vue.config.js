@@ -1,6 +1,19 @@
 const path = require('path')
 
 module.exports = {
+  publicPath: process.env.VUE_APP_BASE_PATH,
+
+  productionSourceMap: false,
+
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'scss',
+      patterns: [
+        path.resolve(__dirname, 'src/assets/scss/global.scss')
+      ]
+    },
+  },
+
   chainWebpack: config => {
     config
       .plugin('html')
