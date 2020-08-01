@@ -9,6 +9,7 @@
 </template>
 
 <script lang="ts">
+import { tick } from '@/hooks/use-utils'
 import { Getter, Action } from 'vuex-class'
 import { Component, Vue } from 'vue-property-decorator'
 import { IObservation, IForecast, ITheme, fn } from '@/types'
@@ -35,7 +36,7 @@ export default class Dashboard extends Vue {
   }
 
   public created (): void {
-    this.fetch()
+    tick(1, this.fetch)
   }
 }
 </script>

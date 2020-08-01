@@ -9,14 +9,14 @@
       <li><span>Temperature:</span> <span :style="styles.temp">{{ metric.temp }} °C</span></li>
       <li><span>Feels Like:</span> <span>{{ metric.windChill }} °C</span></li>
       <li><span>Pressure:</span> <span>{{ metric.pressure }} hPa</span></li>
-      <li><span>Wind &amp; Gust:</span> <span>{{ metric.windSpeed }} / {{ metric.windGust }} km/h</span></li>
-      <li><span>Precip Rate:</span> <span>{{ metric.precipRate }} mm/hr</span></li>
-      <li><span>Precip Total:</span> <span>{{ metric.precipTotal }} mm</span></li>
+      <li><span>Wind &amp; Gust:</span> <span>{{ metric.windSpeed | toFix }} / {{ metric.windGust | toFix }} km/h</span></li>
+      <li><span>Precip Rate:</span> <span>{{ metric.precipRate | toFix }} mm/hr</span></li>
+      <li><span>Precip Total:</span> <span>{{ metric.precipTotal | toFix }} mm</span></li>
       <li>
         <span>Wind Dir:</span>
         <wind-icon :rotation="model.winddir" />
       </li>
-      <li><span>Elev {{ metric.elev }}m, {{ model.lat | toFix }} °N, {{ model.lon | toFix }} °E</span></li>
+      <li><span>Elev {{ metric.elev }}m, {{ model.lat | toFix(2) }} °N, {{ model.lon | toFix(2) }} °E</span></li>
     </ul>
   </div>
 </template>
@@ -40,8 +40,8 @@ import WindIcon from '@/components/atoms/Wind.vue'
       return date.toLocaleString()
     },
 
-    toFix: (value: number): string => {
-      return value.toFixed(2)
+    toFix: (value: number, digits: number = 1): string => {
+      return value.toFixed(digits)
     },
   }
 })

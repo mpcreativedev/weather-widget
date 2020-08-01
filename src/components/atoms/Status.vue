@@ -24,7 +24,7 @@ export default class Status extends Vue {
 @import 'src/assets/scss/global.scss';
 
 .status-icon {
-  @include size(16px);
+  @include size(14px);
   border-radius: 50%;
   display: inline-block;
   margin: 0 5px;
