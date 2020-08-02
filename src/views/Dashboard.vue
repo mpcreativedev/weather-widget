@@ -11,7 +11,6 @@
 <script lang="ts">
 import { tick } from '@/hooks/use-utils'
 import { Getter, Action } from 'vuex-class'
-import { insertRule } from '@/hooks/use-utils'
 import { passiveSupport } from '@/hooks/use-polyfills'
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { IObservation, IForecast, ITheme, fn } from '@/types'
@@ -65,16 +64,8 @@ export default class Dashboard extends Vue {
     tick(.25, this.fetch)
   }
 
-  public setup (): void {
-    //insertRule('selection', {
-    //  'background': this.theme.secondary,
-    //  'color': this.theme.text,
-    //})
-  }
-
   public mounted (): void {
     this.addListeners()
-    this.setup()
     this.fetch()
     //this.loop()
   }

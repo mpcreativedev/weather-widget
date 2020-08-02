@@ -65,3 +65,13 @@ body {
 .alert {
   padding: 0 20px;
 }
+
+::selection {
+  background: $secondary; /* Safari */
+  color: $black;
+}
+
+::-moz-selection {
+  background: $secondary; /* Firefox */
+  color: $black;
+}
