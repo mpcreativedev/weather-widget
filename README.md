@@ -1,4 +1,4 @@
-# weather
+# Weather Widget
 
 ## Project setup
 ```
