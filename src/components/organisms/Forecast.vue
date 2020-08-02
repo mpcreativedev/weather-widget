@@ -38,6 +38,13 @@ export default class ForecastWidget extends Vue {
 .forecast {
   margin: 40px 0 0;
 
+  h3 {
+    font: {
+      weight: 900;
+      size: 18px;
+    }
+  }
+
   .scroller {
     @include size(100%);
     overflow: auto;

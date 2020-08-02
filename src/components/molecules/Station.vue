@@ -58,8 +58,8 @@ export default class StationBox extends Vue {
     h3 {
       margin: 0;
       font: {
-        weight: 700;
-        size: 30px;
+        weight: 900;
+        size: 18px;
       }
     }
   }

@@ -74,7 +74,7 @@ export default class Dashboard extends Vue {
 
 <style lang="scss">
 #dashboard {
-  padding: 0 0 30px;
+  padding: 0;
   margin: 0;
 }
 </style>
