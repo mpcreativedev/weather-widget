@@ -32,7 +32,13 @@ export default class Dashboard extends Vue {
   @Action('app/fetch') fetch!: fn
 
   @Watch('fetched')
-  public onDataFetched (): void {
+  public onFetched (): void {
+    this.$nextTick().then(() => 
+      this.resize())
+  }
+
+  @Watch('errors')
+  public onError (): void {
     this.$nextTick().then(() => 
       this.resize())
   }

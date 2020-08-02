@@ -1,7 +1,7 @@
 <template>
   <div class="error alert">
     <div class="alert">
-      <span>Sorry, service temporarly unavailable.<br />You can try again later.</span>
+      <span>Sorry, weather forecast temporarly unavailable.<br />You can try again later.</span>
     </div>
   </div>
 </template>
