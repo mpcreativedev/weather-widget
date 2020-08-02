@@ -53,7 +53,7 @@ export default class WindIcon extends Vue {
   &::after {
     content: '';
     @include size(0);
-    @include triangle('down', 8px, 22px, $black);
+    @include triangle('down', 8px, 20px, $black);
     @include position(absolute, 0 null null 50%);
     transform: translate(-50%, 0%);
     overflow: hidden;

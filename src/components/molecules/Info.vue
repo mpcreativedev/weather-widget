@@ -52,10 +52,10 @@ export default class InfosBox extends Vue {
   .info-box {
     flex-grow: 1;
     flex-basis: 100%;
-    padding: 15px 0;
+    padding: 15px 5px;
     margin: 50px 0 0;
-    border-bottom: 1px solid $light;
-    border-top: 1px solid $light;
+    border-bottom: 1px solid $grey;
+    border-top: 1px solid $grey;
 
     .container {
       max-width: 400px;

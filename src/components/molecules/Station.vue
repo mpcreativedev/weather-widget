@@ -53,7 +53,7 @@ export default class StationBox extends Vue {
     flex-basis: 100%;
     margin: 0 0 30px;
     padding: 0 0 30px;
-    border-bottom: 1px solid $light;
+    border-bottom: 1px solid $grey;
 
     h3 {
       margin: 0;
