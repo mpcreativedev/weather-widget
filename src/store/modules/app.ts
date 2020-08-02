@@ -61,6 +61,7 @@ const actions = {
     const { data: { observations } } = await api.current.fetch()
     const { data } = await api.forecast.fetch(observations[0])
     commit(SET_OBSERVATION, observations[0])
+    //const { data } = await api.forecast.fetch({ lat: 45.729359, lon: 9.402916 } as any)
     commit(SET_FORECAST, data)
     commit(FETCH_COMPLETE)
   }

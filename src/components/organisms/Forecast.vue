@@ -42,13 +42,14 @@
 </template>
 
 <script lang="ts">
+import { Getter } from 'vuex-class'
 import { Statics } from '@/constants'
 import { IForecast, IDaypart } from '@/types'
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
 export default class Forecast extends Vue {
-  @Prop(Object) model!: IForecast
+  @Getter('app/forecast') model!: IForecast
 
   get daypart (): IDaypart {
     return this.model.daypart[0]

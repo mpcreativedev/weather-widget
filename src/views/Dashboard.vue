@@ -2,7 +2,7 @@
   <section id="dashboard" :style="style">
     <div class="widgets" v-if="fetched">
       <observation-widget />
-      <!--forecast-widget /-->
+      <forecast-widget />
     </div>
   </section>
 </template>
@@ -56,7 +56,8 @@ export default class Dashboard extends Vue {
 
   public mounted (): void {
     this.addListeners()
-    this.loop()
+    this.fetch()
+    //this.loop()
   }
 }
 </script>
