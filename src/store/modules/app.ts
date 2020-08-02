@@ -5,7 +5,7 @@ import {
   SET_OBSERVATION,
   SET_FORECAST,
 } from '@/store/mutations/app'
-import { IObservation, IForecast, ITheme } from '@/types'
+import { IObservation, IForecast, ITheme, IMetric } from '@/types'
 import api from '@/api'
 
 const state = {
@@ -20,6 +20,7 @@ const getters = {
   observation (state: any): IObservation { return state.observation },
   forecast (state: any): IForecast { return state.forecast },
   fetched (state: any): boolean { return state.fetched },
+  metric (state: any): IMetric { return state.observation.metric },
   theme (state: any): ITheme { return state.theme },
 }
 

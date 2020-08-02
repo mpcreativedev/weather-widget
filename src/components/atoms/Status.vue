@@ -1,5 +1,5 @@
 <template>
-  <span class="status-icon" :class="className">
+  <span class="status-icon" :class="className" title="Quality control status">
   </span>
 </template>
 
@@ -8,7 +8,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 import { StationStatus } from '@/constants'
 
 @Component
-export default class Status extends Vue {
+export default class StatusIcon extends Vue {
   @Prop(Number) status!: number
 
   get className (): string {

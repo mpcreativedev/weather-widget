@@ -1,9 +1,8 @@
 <template>
-  <section id="dashboard">
-    <h2 :style="style"><span>Dashboard</span></h2>
+  <section id="dashboard" :style="style">
     <div class="widgets" v-if="fetched">
-      <observation-widget :model="observation" />
-      <forecast-widget :model="forecast" />
+      <observation-widget />
+      <!--forecast-widget /-->
     </div>
   </section>
 </template>
@@ -23,30 +22,25 @@ import ForecastWidget from '@/components/organisms/Forecast.vue'
   }
 })
 export default class Dashboard extends Vue {
-  @Getter('app/observation') observation!: IObservation
-  @Getter('app/forecast') forecast!: IForecast
   @Getter('app/fetched') fetched!: boolean
   @Getter('app/theme') theme!: ITheme
   @Action('app/fetch') fetch!: fn
 
   get style (): any {
     return {
-      color: this.theme.secondary
+      background: this.theme.background
     }
   }
 
   public created (): void {
-    tick(1, this.fetch)
+    tick(.25, this.fetch)
   }
 }
 </script>
 
 <style lang="scss">
 #dashboard {
-  padding: 60px 0;
-
-  h2 {
-    margin: 0;
-  }
+  padding: 0;
+  margin: 0;
 }
 </style>

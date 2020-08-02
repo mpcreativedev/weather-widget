@@ -10,7 +10,7 @@ import { getCardinal } from '@/hooks/use-utils'
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
-export default class Wind extends Vue {
+export default class WindIcon extends Vue {
   @Prop(Number) rotation!: number
 
   public getCardinal: fn = getCardinal
@@ -22,8 +22,8 @@ export default class Wind extends Vue {
                 'transform': `rotate(${this.rotation}deg)`,
       },
       label: {
-        '-webkit-transform': `translate(-50%, -50%) rotate(${-this.rotation}deg)`,
-                'transform': `translate(-50%, -50%) rotate(${-this.rotation}deg)`,
+        '-webkit-transform': `rotate(${-this.rotation}deg)`,
+                'transform': `rotate(${-this.rotation}deg)`,
       }
     }
   }
@@ -34,30 +34,30 @@ export default class Wind extends Vue {
 @import 'src/assets/scss/global.scss';
 
 .wind-icon {
-  @include size(46px);
-  border: 2px solid $black;
-  display: inline-block;
+  @include size(110px);
+  border: 3px solid $black;
+  justify-content: center;
+  align-items: center;
   position: relative;
   border-radius: 50%;
-  margin: 0 10px;
+  display: flex;
+
+  span {
+    display: inline-block;
+    font: {
+      weight: 700;
+      size: 24px;
+    }
+  }
 
   &::after {
     content: '';
     @include size(0);
-    @include triangle('down', 6px, 8px, $black);
+    @include triangle('down', 8px, 22px, $black);
     @include position(absolute, 0 null null 50%);
     transform: translate(-50%, 0%);
     overflow: hidden;
     display: block;
-  }
-
-  span {
-    @include position(absolute, 50% null null 50%);
-    display: block;
-    font: {
-      weight: bold;
-      size: 65%;
-    }
   }
 }
 </style>

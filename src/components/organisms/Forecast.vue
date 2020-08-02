@@ -46,16 +46,7 @@ import { Statics } from '@/constants'
 import { IForecast, IDaypart } from '@/types'
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
-@Component({
-  filters: {
-    date: (value: string): string => {
-      const date = new Date(value)
-      const day = ('0' + date.getDate()).slice(-2)
-      const month = ('0' + (date.getMonth() + 1)).slice(-2)
-      return `${day}/${month}`
-    },
-  }
-})
+@Component
 export default class Forecast extends Vue {
   @Prop(Object) model!: IForecast
 
