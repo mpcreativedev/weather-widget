@@ -66,10 +66,10 @@ export default class Dashboard extends Vue {
   }
 
   public setup (): void {
-    insertRule('selection', {
-      'background': this.theme.secondary,
-      'color': this.theme.text,
-    })
+    //insertRule('selection', {
+    //  'background': this.theme.secondary,
+    //  'color': this.theme.text,
+    //})
   }
 
   public mounted (): void {
