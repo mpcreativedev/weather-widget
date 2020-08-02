@@ -59,9 +59,9 @@ const mutations = {
 const actions = {
   setTheme ({ commit }: any, { background, secondary, text }: ITheme): void {
     commit(SET_THEME, {
-      background: `#${background}`,
-      secondary: `#${secondary}`,
-      text: `#${text}`,
+      background: `#${background || 'fff'}`,
+      secondary: `#${secondary || 'ff8000'}`,
+      text: `#${text || '000'}`,
     }) 
   },
 

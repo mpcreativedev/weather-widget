@@ -33,7 +33,7 @@ export default class ObservationWidget extends Vue {
 
   get style (): any {
     return {
-      color: this.theme.text
+      'color': this.theme.text
     }
   }
 }

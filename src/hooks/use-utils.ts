@@ -24,6 +24,14 @@ export const getTempColor = (value: number): string => {
   return color
 }
 
+export const insertRule = (rule: string, style: any) => {
+  const styles = document.styleSheets[0]
+  if ('insertRule' in styles && 'MozBoxSizing' in styles)
+    styles!.insertRule(`*::-moz-${rule} { background: ${style.background}; color: ${style.color} }`, 0)
+  else if ('insertRule' in styles)
+    styles!.insertRule(`::${rule} { background: ${style.background}; color: ${style.color} }`, 0)
+}
+
 export const tick = (delay: number, callback: fn) => {
   setInterval(() => 
     callback(), delay * 60 * 1000)
