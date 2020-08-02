@@ -1,5 +1,6 @@
 <template>
   <section id="dashboard" :style="style">
+    <error-alert v-if="errors" />
     <div class="widgets" v-if="fetched">
       <observation-widget />
       <forecast-widget />
@@ -15,15 +16,18 @@ import { Component, Vue, Watch } from 'vue-property-decorator'
 import { IObservation, IForecast, ITheme, fn } from '@/types'
 import ObservationWidget from '@/components/organisms/Observation.vue'
 import ForecastWidget from '@/components/organisms/Forecast.vue'
+import ErrorAlert from '@/components/organisms/Error.vue'
 
 @Component({
   components: {
     ObservationWidget,
     ForecastWidget,
+    ErrorAlert,
   }
 })
 export default class Dashboard extends Vue {
   @Getter('app/fetched') fetched!: boolean
+  @Getter('app/errors') errors!: boolean
   @Getter('app/theme') theme!: ITheme
   @Action('app/fetch') fetch!: fn
 

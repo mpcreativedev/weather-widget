@@ -48,7 +48,7 @@ import { IForecast, IDaypart } from '@/types'
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
-export default class Forecast extends Vue {
+export default class ForecastWidget extends Vue {
   @Getter('app/forecast') model!: IForecast
 
   get daypart (): IDaypart {
