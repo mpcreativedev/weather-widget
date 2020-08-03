@@ -20,7 +20,7 @@
       </div>
       <div class="data row">
         <span class="label">Last update:
-          <span class="value">{{ model.obsTimeLocal | timeDate }}</span>
+          <span class="value">{{ model.epoch | epochToDate }}</span>
         </span>
       </div>
     </div>

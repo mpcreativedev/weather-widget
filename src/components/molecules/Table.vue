@@ -4,7 +4,6 @@
       <tr>
         <th><span>Day</span></th>
         <th class="weather"><span>Conditions</span></th>
-        <th class="temp"><span>Temp.</span></th>
         <th class="minmax"><span>Max. Min.</span></th>
         <th class="humidity"><span>Humidity</span></th>
         <th><span>Precip.</span></th>
@@ -15,15 +14,12 @@
     <tbody>
       <tr v-for="(day, index) of model.dayOfWeek" :key="index">
         <td>
-          <span>{{ daypart.daypartName[getIndex(index, 'daypartName')] }} {{ model.validTimeLocal[index] | date }}</span>
+          <span>{{ daypart.daypartName[getIndex(index, 'daypartName')] }} {{ model.validTimeLocal[index] | localTodate }}</span>
         </td>
         <td class="weather">
           <img class="icon" alt=""
             :src="`${statics.weather}/${daypart.iconCode[getIndex(index, 'iconCode')]}.svg`" 
             :title="daypart.wxPhraseLong[getIndex(index, 'wxPhraseLong')]">
-        </td>
-        <td class="temp">
-          <span>{{ daypart.temperature[getIndex(index, 'temperature')] }} °C</span>
         </td>
         <td class="minmax">
           <span v-if="model.temperatureMax[index]"><span class="max">{{ model.temperatureMax[index] }}°</span> | </span>
@@ -110,7 +106,6 @@ export default class TableBox extends Vue {
       &.weather,
       &.humidity,
       &.minmax,
-      &.temp,
       &.moon {
         text-align: center;
       }
