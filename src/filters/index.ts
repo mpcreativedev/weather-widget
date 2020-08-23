@@ -15,3 +15,8 @@ Vue.filter('localTodate', (value: string): any => {
 Vue.filter('toFix', (value: number, digits: number = 1): string => {
   return value.toFixed(digits)
 })
+
+Vue.filter('minDigits', (value: number, digits: number = 2): string => {
+  console.log(value)
+  return `0${value}`.slice(-digits)
+})

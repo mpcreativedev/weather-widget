@@ -38,7 +38,7 @@
         </td>
         <td class="moon">
           <img class="icon" alt=""
-            :src="`${statics.moon}/n-${model.moonPhaseDay[index]}.svg`"
+            :src="`${statics.moon}/n-${`0${model.moonPhaseDay[index]}`.slice(-2)}.svg`"
             :title="model.moonPhase[index]"> 
         </td>
       </tr>
