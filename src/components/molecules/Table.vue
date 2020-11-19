@@ -22,9 +22,9 @@
             :title="daypart.wxPhraseLong[getIndex(index, 'wxPhraseLong')]">
         </td>
         <td class="minmax">
-          <span v-if="model.temperatureMax[index]"><span class="max">{{ model.temperatureMax[index] }}°</span> | </span>
+          <span v-if="model.temperatureMax[index] !== null"><span class="max">{{ model.temperatureMax[index] }}°</span> | </span>
           <span v-else>-- | </span>
-          <span v-if="model.temperatureMin[index]"><span class="min">{{ model.temperatureMin[index] }}°</span>C</span>
+          <span v-if="model.temperatureMin[index] !== null"><span class="min">{{ model.temperatureMin[index] }}°</span>C</span>
         </td>
         <td class="humidity">
           <span>{{ daypart.relativeHumidity[getIndex(index, 'relativeHumidity')] }}%</span>
