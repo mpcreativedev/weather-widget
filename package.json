@@ -23,7 +23,7 @@
     "@vue/cli-plugin-vuex": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "sass": "^1.26.10",
-    "sass-loader": "^9.0.2",
+    "sass-loader": "^12.1.0",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11",
     "yarn-upgrade-all": "^0.5.4"
